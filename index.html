@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DONE'S LATEST CLOTHES, SHOES & WATCHES SHOP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0862f1;
+      --secondary: #ec9007;
+      --accent: #f8071a;
+      --dark: #222;
+      --light: #f8f9fa;
+      --success: #28a745;
+    }
+
+    /* General body styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('https://images.unsplash.com/photo-1508385082359-cb1cbe1bb1d6?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--primary);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Header styles */
+    header {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo svg {
+      width: 60px;
+      height: 60px;
+      margin-right: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .cart-icon {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    /* Main content styles */
+    .main-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-image: url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d');
+    }
+
+    /* Filter section */
+    .filter-section {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .filter-group label {
+      margin-right: 0.5rem;
+      font-weight: 600;
+    }
+
+    .filter-group select, .filter-group input {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1.2rem;
+    }
+
+    .product-title {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem;
+      color: var(--dark);
+    }
+
+    .product-price {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      background-color: #f0f0f0;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .quantity-input {
+      width: 40px;
+      text-align: center;
+      border: 1px solid #ddd;
+      margin: 0 5px;
+    }
+
+    .add-to-cart {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0654d1;
+    }
+
+    /* WhatsApp Order Button */
+    .whatsapp-order-btn {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .whatsapp-order-btn:hover {
+      background-color: #128C7E;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .footer-section h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    .footer-section a {
+      display: block;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #444;
+    }
+
+    /* Shopping cart modal */
+    .cart-modal {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .cart-modal.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1rem;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      padding: 1rem;
+    }
+
+    .cart-item {
+      display: flex;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+
+    .cart-item-price {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .cart-summary {
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+
+    .bill-details {
+      margin-bottom: 1rem;
+    }
+
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .bill-total {
+      font-weight: 700;
+      border-top: 1px solid #ddd;
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--success);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-bottom: 0.5rem;
+    }
+
+    .checkout-btn:hover {
+      background-color: #218838;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+      }
+      
+      .nav-links {
+        margin-top: 1rem;
+      }
+      
+      .cart-modal {
+        width: 100%;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    /* Category tabs */
+    .category-tabs {
+      display: flex;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .category-tab {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .category-tab.active {
+      border-bottom-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .category-tab:hover:not(.active) {
+      background-color: #f5f5f5;
+    }
+
+    /* Product category sections */
+    .product-category {
+      display: none;
+    }
+
+    .product-category.active {
+      display: block;
+    }
+
+    /* Checkout Modal Styles */
+    .checkout-modal {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s;
+      z-index: 1001;
+      overflow-y: auto;
+    }
+    
+    .checkout-modal.open {
+      right: 0;
+    }
+    
+    .checkout-header {
+      padding: 1rem;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .close-checkout {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .checkout-form {
+      padding: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+    
+    .form-group textarea {
+      min-height: 80px;
+    }
+    
+    .help-text {
+      display: block;
+      margin-top: 0.3rem;
+      color: #666;
+      font-size: 0.8rem;
+    }
+    
+    .submit-order-btn {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--success);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+    }
+    
+    .submit-order-btn:hover {
+      background-color: #218838;
+    }
+    
+    @media (max-width: 768px) {
+      .checkout-modal {
+        width: 100%;
+      }
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-icon {
+      font-size: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .whatsapp-icon {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <svg width="60" height="60" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="150" cy="150" r="140" fill="#222" stroke-width="4" stroke="#0862f1"/>
+          <text x="150" y="160" font-family="Arial" font-size="24" fill="#ffffff" text-anchor="middle">DONE'S</text>
+        </svg>
+        <h1>DONE'S FASHION DESIGNER SHOP</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#" class="cart-icon" id="open-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <h2>Our Latest Collection</h2>
+    
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+      <div class="category-tab active" data-category="all">All Products</div>
+      <div class="category-tab" data-category="clothing">Clothing</div>
+      <div class="category-tab" data-category="shoes">Shoes</div>
+      <div class="category-tab" data-category="watches">Watches</div>
+    </div>
+    
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <div class="filter-group">
+        <label for="price">Price:</label>
+        <select id="price">
+          <option value="all">All Prices</option>
+          <option value="0-2000">Under Ksh 2,000</option>
+          <option value="2000-4000">Ksh 2,000 - 4,000</option>
+          <option value="4000-6000">Ksh 4,000 - 6,000</option>
+          <option value="6000+">Over Ksh 6,000</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="sort">Sort By:</label>
+        <select id="sort">
+          <option value="popular">Most Popular</option>
+          <option value="newest">Newest</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="search">Search:</label>
+        <input type="text" id="search" placeholder="Search products...">
+      </div>
+    </div>
+    
+    <!-- Product Grid - All Products -->
+    <div class="product-category active" id="all-products">
+      <div class="product-grid">
+        <!-- Clothing Products -->
+        <div class="product-card" data-category="clothing">
+          <img src="jean.jpeg" alt="Jeans" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Designer Jeans</h3>
+            <p class="product-price">Ksh 2,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="2" data-name="Designer Jeans" data-price="2500" data-image="jean.jpeg">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Designer Jeans" data-price="2500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="clothing">
+          <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Graphic T-Shirt</h3>
+            <p class="product-price">Ksh 1,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="3" data-name="Graphic T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Graphic T-Shirt" data-price="1500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+                <!-- Additional Clothing Products -->
+        <div class="product-card" data-category="clothing">
+          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="jeans" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">plain Jeans</h3>
+            <p class="product-price">Ksh 2,200</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="4" data-name="plain jeans" data-price="2200" data-image="https://images.unsplash.com/photo-1542272604-787c3835535d">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="plain jeans" data-price="3200">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="clothing">
+          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Jacket" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Denim Jacket</h3>
+            <p class="product-price">Ksh 4,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="5" data-name="Denim Jacket" data-price="4500" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Denim Jacket" data-price="4500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shoes Products -->
+        <div class="product-card" data-category="shoes">
+          <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28" alt="Sneakers" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Classic Sneakers</h3>
+            <p class="product-price">Ksh 5,800</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="6" data-name="Classic Sneakers" data-price="5800" data-image="https://images.unsplash.com/photo-1600269452121-4f2416e55c28">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Classic Sneakers" data-price="5800">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="shoes">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="Running Shoes" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Running Shoes</h3>
+            <p class="product-price">Ksh 6,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="7" data-name="Running Shoes" data-price="6500" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Running Shoes" data-price="6500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+         <div class="product-card" data-category="clothing">
+          <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Graphic T-Shirt</h3>
+            <p class="product-price">Ksh 1,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="3" data-name="Graphic T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Graphic T-Shirt" data-price="1500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+         <div class="product-card" data-category="clothing">
+          <img src="white.jpeg" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">plain white T-Shirt</h3>
+            <p class="product-price">Ksh 1,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="3" data-name="plain white T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="plain white T-Shirt" data-price="1500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+         <div class="product-card" data-category="clothing">
+          <img src="color.jpeg" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Plain colored tee</h3>
+            <p class="product-price">Ksh 1,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="3" data-name="Plain colored T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Plaim colored T-Shirt" data-price="1500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- More products would follow the same pattern -->
+        
+        <!-- Shoes Products -->
+        <div class="product-card" data-category="shoes">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Running Shoes" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Nike Running Shoes</h3>
+            <p class="product-price">Ksh 5,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="1" data-name="Nike Running Shoes" data-price="5500" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Nike Running Shoes" data-price="5500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+         <div class="product-card" data-category="shoes">
+          <img src="cack.jpeg" alt="Cactus jacks" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Cactus jacks</h3>
+            <p class="product-price">Ksh 4,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="1" data-name="Cactus jacks" data-price="4500" data-image="">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Cactus Jacks" data-price="4500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="shoes">
+          <img src="air.jpeg" alt="Air Max" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Air Max</h3>
+            <p class="product-price">Ksh 4,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="1" data-name="Air Max" data-price="4500" data-image="">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Air Max" data-price="4500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Watches Products -->
+        <div class="product-card" data-category="watches">
+          <img src="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Watch" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Luxury Chronograph</h3>
+            <p class="product-price">Ksh 5,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="7" data-name="Luxury Chronograph Watch" data-price="5500" data-image="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Luxury Chronograph Watch" data-price="5500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Product Grid - Clothing -->
+    <div class="product-category" id="clothing-products">
+      <div class="product-grid">
+        <!-- Clothing products will be shown here -->
+      </div>
+    </div>
+    
+    <!-- Product Grid - Shoes -->
+    <div class="product-category" id="shoes-products">
+      <div class="product-grid">
+        <!-- Shoes products will be shown here -->
+      </div>
+    </div>
+    
+    <!-- Product Grid - Watches -->
+    <div class="product-category" id="watches-products">
+      <div class="product-grid">
+        <!-- Watches products will be shown here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Modal -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="close-cart" id="close-cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- Cart items will be added here dynamically -->
+    </div>
+    <div class="cart-summary">
+      <div class="bill-details">
+        <div class="bill-row">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal">Ksh 0</span>
+        </div>
+        <div class="bill-row">
+          <span>Delivery Fee:</span>
+          <span id="delivery-fee">Ksh 200</span>
+        </div>
+        <div class="bill-row bill-total">
+          <span>Total:</span>
+          <span id="cart-total">Ksh 0</span>
+        </div>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+      <button class="whatsapp-btn" id="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Checkout Form Modal -->
+  <div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-header">
+      <h3>Complete Your Order</h3>
+      <button class="close-checkout" id="close-checkout">&times;</button>
+    </div>
+    <div class="checkout-form">
+      <form id="customer-info-form">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+        </div>
+        
+        <div class="form-group">
+          <label for="phone-number">Phone Number</label>
+          <input type="tel" id="phone-number" name="phone-number" required placeholder="e.g. 254712345678">
+        </div>
+        
+        <div class="form-group">
+          <label for="location">Delivery Location</label>
+          <input type="text" id="location" name="location" required placeholder="Enter your delivery address">
+        </div>
+        
+        <div class="form-group">
+          <label for="mpesa-code">M-Pesa Transaction Code</label>
+          <input type="text" id="mpesa-code" name="mpesa-code" required placeholder="Enter your M-Pesa code">
+          <small class="help-text">Check your M-Pesa message for the transaction code</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="delivery-instructions">Delivery Instructions (Optional)</label>
+          <textarea id="delivery-instructions" name="delivery-instructions" placeholder="Any special delivery instructions?"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-order-btn">Submit Order</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>DONE'S FASHION offers the latest fashion trends in Nairobi. We provide high-quality clothing, footwear and accessories at affordable prices.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Sale</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Nairobi Town, Dynamic Mall</p>
+        <p>Shop ML 55, 2nd Floor</p>
+        <p>Phone: +254 703 427 147</p>
+        <p>Email: info@donesshop.com</p>
+        
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 DONE'S FASHION. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254703427147" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cart = [];
+      const cartModal = document.getElementById('cart-modal');
+      const overlay = document.getElementById('overlay');
+      const openCartBtn = document.getElementById('open-cart');
+      const closeCartBtn = document.getElementById('close-cart');
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartSubtotalElement = document.getElementById('cart-subtotal');
+      const cartTotalElement = document.getElementById('cart-total');
+      const cartCountElement = document.querySelector('.cart-count');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const whatsappBtn = document.getElementById('whatsapp-btn');
+      const deliveryFeeElement = document.getElementById('delivery-fee');
+      
+      // Checkout form elements
+      const checkoutModal = document.getElementById('checkout-modal');
+      const closeCheckoutBtn = document.getElementById('close-checkout');
+      const customerInfoForm = document.getElementById('customer-info-form');
+      
+      // Category tabs
+      const categoryTabs = document.querySelectorAll('.category-tab');
+      const productCategories = document.querySelectorAll('.product-category');
+      
+      // Add to cart buttons
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      
+      // Open cart modal
+      openCartBtn.addEventListener('click', function() {
+        cartModal.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      // Close cart modal
+      closeCartBtn.addEventListener('click', function() {
+        cartModal.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close checkout modal
+      closeCheckoutBtn.addEventListener('click', function() {
+        checkoutModal.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close modal when clicking overlay
+      overlay.addEventListener('click', function() {
+        cartModal.classList.remove('open');
+        checkoutModal.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Category tab switching
+      categoryTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          
+          // Update active tab
+          categoryTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Show the selected category
+          productCategories.forEach(cat => cat.classList.remove('active'));
+          
+          if (category === 'all') {
+            document.getElementById('all-products').classList.add('active');
+          } else {
+            // Filter products for the selected category
+            const allProducts = document.querySelectorAll('#all-products .product-card');
+            const categoryContainer = document.getElementById(`${category}-products`);
+            const categoryGrid = categoryContainer.querySelector('.product-grid');
+            
+            // Clear previous items
+            categoryGrid.innerHTML = '';
+            
+            // Add matching products
+            allProducts.forEach(product => {
+              if (product.getAttribute('data-category') === category) {
+                categoryGrid.appendChild(product.cloneNode(true));
+              }
+            });
+            
+            // Add event listeners to new buttons
+            addEventListenersToNewButtons(categoryGrid);
+            
+            // Show the category
+            categoryContainer.classList.add('active');
+          }
+        });
+      });
+      
+      // Add to cart functionality
+      function addToCartHandler(button) {
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+        const image = button.getAttribute('data-image');
+        const quantity = parseInt(button.parentElement.querySelector('.quantity-input').value);
+        
+        // Check if item already in cart
+        const existingItem = cart.find(item => item.id === id);
+        
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({
+            id,
+            name,
+            price,
+            image,
+            quantity
+          });
+        }
+        
+        updateCart();
+        
+        // Show feedback
+        alert(`${quantity} ${name} added to cart!`);
+      }
+      
+      // Add event listeners to all add-to-cart buttons
+      function addEventListenersToNewButtons(container) {
+        const buttons = container.querySelectorAll('.add-to-cart');
+        buttons.forEach(button => {
+          button.addEventListener('click', function() {
+            addToCartHandler(this);
+          });
+        });
+        
+        // Add event listeners to WhatsApp buttons
+        const whatsappButtons = container.querySelectorAll('.whatsapp-order-btn');
+        whatsappButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            whatsappOrderHandler(this);
+          });
+        });
+      }
+      
+      // Initial setup for add-to-cart buttons
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          addToCartHandler(this);
+        });
+      });
+      
+      // WhatsApp order handler for single products
+      function whatsappOrderHandler(button) {
+        const productName = button.getAttribute('data-name');
+        const productPrice = parseFloat(button.getAttribute('data-price'));
+        const quantity = button.parentElement.querySelector('.quantity-input').value;
+        const total = productPrice * quantity;
+        
+        const message = `Hello DONE'S FASHION! I'd like to order:\n\n` +
+                       `- ${productName} (${quantity} × Ksh ${productPrice.toLocaleString()}) = Ksh ${total.toLocaleString()}\n\n` +
+                       `Please contact me to confirm my order. Thank you!`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = '254703427147'; // Your WhatsApp number
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappUrl, '_blank');
+      }
+      
+      // WhatsApp order for entire cart
+      whatsappBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert('Your cart is empty!');
+          return;
+        }
+
+        // Calculate totals
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const deliveryFee = subtotal > 5000 ? 0 : 200;
+        const total = subtotal + deliveryFee;
+
+        // Create order message
+        let message = `Hello DONE'S FASHION! I'd like to place an order:\n\n`;
+        
+        // Add items to message
+        cart.forEach(item => {
+          message += `- ${item.name} (${item.quantity} × Ksh ${item.price.toLocaleString()}) = Ksh ${(item.price * item.quantity).toLocaleString()}\n`;
+        });
+        
+        message += `\nSubtotal: Ksh ${subtotal.toLocaleString()}\n`;
+        message += `Delivery: Ksh ${deliveryFee.toLocaleString()}\n`;
+        message += `Total: Ksh ${total.toLocaleString()}\n\n`;
+        message += `Please contact me to confirm my order. Thank you!`;
+
+        // Encode the message for URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Your WhatsApp business number
+        const whatsappNumber = '254703427147'; // Kenyan format without + or 0
+        
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+        
+        // Close the cart modal
+        cartModal.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Quantity controls
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('quantity-btn')) {
+          const input = e.target.parentElement.querySelector('.quantity-input');
+          let value = parseInt(input.value);
+          
+          if (e.target.classList.contains('minus')) {
+            if (value > 1) {
+              input.value = value - 1;
+            }
+          } else if (e.target.classList.contains('plus')) {
+            input.value = value + 1;
+          }
+        }
+      });
+      
+      // Update cart display
+      function updateCart() {
+        cartItemsContainer.innerHTML = '';
+        let subtotal = 0;
+        
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+          deliveryFeeElement.textContent = 'Ksh 0';
+        } else {
+          cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            
+            const cartItemElement = document.createElement('div');
+            cartItemElement.className = 'cart-item';
+            cartItemElement.innerHTML = `
+              <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+              <div class="cart-item-details">
+                <h4 class="cart-item-title">${item.name}</h4>
+                <p class="cart-item-price">Ksh ${item.price.toLocaleString()} × ${item.quantity}</p>
+                <p class="cart-item-total">Ksh ${(item.price * item.quantity).toLocaleString()}</p>
+                <div class="quantity-control">
+                  <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                  <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+                  <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                </div>
+              </div>
+              <button class="cart-item-remove" data-id="${item.id}">
+                <i class="fas fa-trash"></i>
+              </button>
+            `;
+            
+            cartItemsContainer.appendChild(cartItemElement);
+          });
+          
+          // Set delivery fee (free for orders over 5000)
+          const deliveryFee = subtotal > 5000 ? 0 : 200;
+          deliveryFeeElement.textContent = 'Ksh ' + deliveryFee.toLocaleString();
+        }
+        
+        const total = subtotal + parseInt(deliveryFeeElement.textContent.replace(/[^\d]/g, '') || 0);
+        
+        cartSubtotalElement.textContent = 'Ksh ' + subtotal.toLocaleString();
+        cartTotalElement.textContent = 'Ksh ' + total.toLocaleString();
+        cartCountElement.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        
+        // Add event listeners to cart controls
+        document.querySelectorAll('.cart-item-remove').forEach(button => {
+          button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const index = cart.findIndex(item => item.id === id);
+            
+            if (index !== -1) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+          });
+        });
+        
+        document.querySelectorAll('.cart-item .minus').forEach(button => {
+          button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            
+            if (item.quantity > 1) {
+              item.quantity--;
+              updateCart();
+            }
+          });
+        });
+        
+        document.querySelectorAll('.cart-item .plus').forEach(button => {
+          button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            item.quantity++;
+            updateCart();
+          });
+        });
+        
+        document.querySelectorAll('.cart-item .quantity-input').forEach(input => {
+          input.addEventListener('change', function() {
+            const id = this.closest('.cart-item').querySelector('.minus').getAttribute('data-id');
+            const item = cart.find(item => item.id === id);
+            const newQuantity = parseInt(this.value);
+            
+            if (newQuantity > 0) {
+              item.quantity = newQuantity;
+              updateCart();
+            } else {
+              this.value = item.quantity;
+            }
+          });
+        });
+      }
+      
+      // Checkout button - show checkout form
+      checkoutBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert('Your cart is empty!');
+          return;
+        }
+        
+        // Close the cart modal and open the checkout form
+        cartModal.classList.remove('open');
+        checkoutModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      // Form submission
+      customerInfoForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const fullName = document.getElementById('full-name').value;
+        const phoneNumber = document.getElementById('phone-number').value;
+        const location = document.getElementById('location').value;
+        const mpesaCode = document.getElementById('mpesa-code').value;
+        const deliveryInstructions = document.getElementById('delivery-instructions').value;
+        
+        // Calculate totals
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const deliveryFee = subtotal > 45000 ? 0 : 200;
+        const total = subtotal + deliveryFee;
+        
+        // Generate receipt
+        let receipt = `=== DONE'S FASHION ORDER CONFIRMATION ===\n\n`;
+        receipt += `CUSTOMER DETAILS:\n`;
+        receipt += `Name: ${fullName}\n`;
+        receipt += `Phone: ${phoneNumber}\n`;
+        receipt += `Location: ${location}\n`;
+        receipt += `M-Pesa Code: ${mpesaCode}\n`;
+        if (deliveryInstructions) {
+          receipt += `Delivery Instructions: ${deliveryInstructions}\n`;
+        }
+        
+        receipt += `\nORDER DETAILS:\n`;
+        cart.forEach(item => {
+          receipt += `${item.name} (${item.quantity} × Ksh ${item.price.toLocaleString()}) = Ksh ${(item.price * item.quantity).toLocaleString()}\n`;
+        });
+        
+        receipt += `\nSUBTOTAL: Ksh ${subtotal.toLocaleString()}\n`;
+        receipt += `DELIVERY: Ksh ${deliveryFee.toLocaleString()}\n`;
+        receipt += `TOTAL: Ksh ${total.toLocaleString()}\n\n`;
+        receipt += `Your order has been received! We will contact you shortly to confirm delivery details.\n`;
+        receipt += `Thank you for shopping with DONE'S FASHION!`;
+        
+        // Show confirmation
+        alert(receipt);
+        
+        // Reset form and cart
+        customerInfoForm.reset();
+        cart.length = 0;
+        updateCart();
+        checkoutModal.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Initialize empty cart
+      updateCart();
+      
+      // Filter functionality (simplified for demo)
+      document.getElementById('price').addEventListener('change', function() {
+        const priceRange = this.value;
+        const products = document.querySelectorAll('.product-card');
+        
+        products.forEach(product => {
+          const price = parseInt(product.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+          let shouldShow = true;
+          
+          if (priceRange === '0-2000' && price > 2000) shouldShow = false;
+          else if (priceRange === '2000-4000' && (price < 2000 || price > 4000)) shouldShow = false;
+          else if (priceRange === '4000-6000' && (price < 4000 || price > 6000)) shouldShow = false;
+          else if (priceRange === '6000+' && price < 6000) shouldShow = false;
+          
+          product.style.display = shouldShow ? 'block' : 'none';
+        });
+      });
+      
+      document.getElementById('sort').addEventListener('change', function() {
+        const sortBy = this.value;
+        const activeCategory = document.querySelector('.product-category.active');
+        const productGrid = activeCategory.querySelector('.product-grid');
+        const products = Array.from(productGrid.querySelectorAll('.product-card'));
+        
+        products.sort((a, b) => {
+          const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+          const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+          
+          if (sortBy === 'price-low') return priceA - priceB;
+          if (sortBy === 'price-high') return priceB - priceA;
+          return 0; // For other sort options, maintain current order
+        });
+        
+        // Re-append sorted products
+        products.forEach(product => productGrid.appendChild(product));
+      });
+      
+      document.getElementById('search').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const products = document.querySelectorAll('.product-card');
+        
+        products.forEach(product => {
+          const title = product.querySelector('.product-title').textContent.toLowerCase();
+          product.style.display = title.includes(searchTerm) ? 'block' : 'none';
+        });
+      });
+      
+      // Add event listeners to initial WhatsApp buttons
+      document.querySelectorAll('.whatsapp-order-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          whatsappOrderHandler(this);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
