@@ -25,6 +25,7 @@
       padding: 0;
       min-height: 100vh;
       position: relative;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     /* Header styles */
@@ -35,6 +36,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: background-color 0.3s;
     }
 
     .header-container {
@@ -59,6 +61,7 @@
     .nav-links {
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
 
     .nav-links a {
@@ -108,6 +111,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      transition: background-color 0.3s;
     }
 
     .filter-group {
@@ -124,6 +128,7 @@
       padding: 0.5rem;
       border: 1px solid #ddd;
       border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
 
     /* Product grid */
@@ -138,7 +143,8 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      position: relative;
     }
 
     .product-card:hover {
@@ -160,6 +166,7 @@
       font-size: 1.1rem;
       margin: 0 0 0.5rem;
       color: var(--dark);
+      transition: color 0.3s;
     }
 
     .product-price {
@@ -187,6 +194,7 @@
       border: none;
       font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
     .quantity-input {
@@ -194,6 +202,7 @@
       text-align: center;
       border: 1px solid #ddd;
       margin: 0 5px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
 
     .add-to-cart {
@@ -293,7 +302,7 @@
       height: 100vh;
       background-color: white;
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-      transition: right 0.3s;
+      transition: right 0.3s, background-color 0.3s, color 0.3s;
       z-index: 1000;
       overflow-y: auto;
     }
@@ -361,6 +370,7 @@
     .cart-summary {
       padding: 1rem;
       background-color: #f9f9f9;
+      transition: background-color 0.3s;
     }
 
     .bill-details {
@@ -500,7 +510,7 @@
       height: 100vh;
       background-color: white;
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-      transition: right 0.3s;
+      transition: right 0.3s, background-color 0.3s, color 0.3s;
       z-index: 1001;
       overflow-y: auto;
     }
@@ -539,6 +549,7 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
       color: var(--dark);
+      transition: color 0.3s;
     }
     
     .form-group input,
@@ -548,6 +559,7 @@
       border: 1px solid #ddd;
       border-radius: 4px;
       font-family: inherit;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
     
     .form-group textarea {
@@ -625,11 +637,154 @@
         font-size: 25px;
       }
     }
+
+    /* Stock indicator */
+    .stock-indicator {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #28a745; /* Green by default */
+    }
+
+    .stock-indicator.out-of-stock {
+      background-color: #dc3545; /* Red for out of stock */
+    }
+
+    /* Wishlist heart */
+    .wishlist-heart {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .wishlist-heart.active {
+      color: #dc3545;
+    }
+
+    .likes-count {
+      font-size: 0.8rem;
+      margin-left: 3px;
+    }
+
+    /* Google Maps */
+    .location-map {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    /* Back button */
+    .back-button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .back-button {
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #0654d1;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+
+    body.dark-mode header {
+      background-color: rgba(30, 30, 30, 0.9);
+    }
+
+    body.dark-mode .nav-links a {
+      color: #f5f5f5;
+    }
+
+    body.dark-mode .product-card,
+    body.dark-mode .filter-section,
+    body.dark-mode .cart-summary {
+      background-color: rgba(30, 30, 30, 0.95);
+      color: #f5f5f5;
+    }
+
+    body.dark-mode .product-title,
+    body.dark-mode .form-group label {
+      color: #f5f5f5;
+    }
+
+    body.dark-mode .quantity-input,
+    body.dark-mode .filter-group select,
+    body.dark-mode .filter-group input,
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group textarea {
+      background-color: #333;
+      color: #f5f5f5;
+      border-color: #444;
+    }
+
+    body.dark-mode .cart-modal,
+    body.dark-mode .checkout-modal {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
+
+    body.dark-mode .category-tab:hover:not(.active) {
+      background-color: #333;
+    }
+
+    body.dark-mode .quantity-btn {
+      background-color: #333;
+      color: #f5f5f5;
+    }
+    .location-section {
+  padding: 2rem;
+  background-color: var(--light-bg);
+  margin: 2rem 0;
+  border-radius: 8px;
+}
+
+.location-card {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.location-map {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
+    <button id="add-product-btn" class="floating-action-btn">
+  <i class="fas fa-plus"></i> Add Product
+</button>
     <div class="header-container">
       <div class="logo">
         <svg width="60" height="60" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
@@ -639,10 +794,13 @@
         <h1>DONE'S FASHION DESIGNER SHOP</h1>
       </div>
       <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="Home">Home</a>
+        <a href="Shop">Shop</a>
+        <a href="About us">About</a>
+        <a href="Contact info">Contact</a>
+        <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; color: inherit;">
+          <i class="fas fa-moon"></i>
+        </button>
         <a href="#" class="cart-icon" id="open-cart">
           <i class="fas fa-shopping-cart"></i>
           <span class="cart-count">0</span>
@@ -697,6 +855,8 @@
       <div class="product-grid">
         <!-- Clothing Products -->
         <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
           <img src="jean.jpeg" alt="Jeans" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Designer Jeans</h3>
@@ -716,6 +876,8 @@
         </div>
         
         <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
           <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573" alt="T-Shirt" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Graphic T-Shirt</h3>
@@ -734,28 +896,10 @@
           </div>
         </div>
 
-                <!-- Additional Clothing Products -->
         <div class="product-card" data-category="clothing">
-          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="jeans" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">plain Jeans</h3>
-            <p class="product-price">Ksh 2,200</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="4" data-name="plain jeans" data-price="2200" data-image="https://images.unsplash.com/photo-1542272604-787c3835535d">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="plain jeans" data-price="3200">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="clothing">
-          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Jacket" class="product-image">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="IMG_0515.JPG" alt="Jacket" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Denim Jacket</h3>
             <p class="product-price">Ksh 4,500</p>
@@ -765,7 +909,7 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="5" data-name="Denim Jacket" data-price="4500" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea">Add to Cart</button>
+              <button class="add-to-cart" data-id="5" data-name="Denim Jacket" data-price="4500" data-image="IMG_0515.JPG">Add to Cart</button>
               <button class="whatsapp-order-btn" data-name="Denim Jacket" data-price="4500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
@@ -775,6 +919,8 @@
 
         <!-- Shoes Products -->
         <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
           <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28" alt="Sneakers" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Classic Sneakers</h3>
@@ -794,9 +940,11 @@
         </div>
 
         <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="Running Shoes" class="product-image">
           <div class="product-info">
-            <h3 class="product-title">Running Shoes</h3>
+            <h3 class="product-title">Nike Shoes</h3>
             <p class="product-price">Ksh 6,500</p>
             <div class="product-actions">
               <div class="quantity-control">
@@ -804,16 +952,80 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="7" data-name="Running Shoes" data-price="6500" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Running Shoes" data-price="6500">
+              <button class="add-to-cart" data-id="7" data-name="Nike Shoes" data-price="6500" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Nike Shoes" data-price="6500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
             </div>
           </div>
         </div>
         
-         <div class="product-card" data-category="clothing">
-          <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573" alt="T-Shirt" class="product-image">
+        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="air.jpeg" alt="Jordan one" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Jordan one</h3>
+            <p class="product-price">Ksh 4,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="8" data-name="Jordan one" data-price="4500" data-image="air.jpeg">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Jordan one" data-price="4500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+         <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="Supreme.jpeg" alt="Supreme Air " class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Supreme Air</h3>
+            <p class="product-price">Ksh 4,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="8" data-name="Supreme Air" data-price="4500" data-image="Supreme.jpeg">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Supreme Air" data-price="4500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="IMG_0419.JPG" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Buggy Cult T-Shirt</h3>
+            <p class="product-price">Ksh 1,800</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="9" data-name="Buggy Cult T-Shirt" data-price="1800" data-image="IMG_0419.JPGG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Buggy T-Shirt" data-price="1800">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div> 
+        
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="AURY1742.JPG" alt="T-Shirt" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Graphic T-Shirt</h3>
             <p class="product-price">Ksh 1,500</p>
@@ -823,18 +1035,20 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="3" data-name="Graphic T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
+              <button class="add-to-cart" data-id="10" data-name="Graphic T-Shirt" data-price="1500" data-image="AURY1742.JPG">Add to Cart</button>
               <button class="whatsapp-order-btn" data-name="Graphic T-Shirt" data-price="1500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
             </div>
           </div>
-        </div>
+        </div> 
 
-         <div class="product-card" data-category="clothing">
-          <img src="white.jpeg" alt="T-Shirt" class="product-image">
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="CFGE7457.JPG" alt="T-Shirt" class="product-image">
           <div class="product-info">
-            <h3 class="product-title">plain white T-Shirt</h3>
+            <h3 class="product-title">Plain White T-Shirt</h3>
             <p class="product-price">Ksh 1,500</p>
             <div class="product-actions">
               <div class="quantity-control">
@@ -842,107 +1056,51 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="3" data-name="plain white T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="plain white T-Shirt" data-price="1500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              <button class="add-to-cart" data-id="11" data-name="Plain White T-Shirt" data-price="1500" data-image="CFGE7457.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Plain White T-Shirt" data-price="1500">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
             </div>
           </div>
         </div>
 
-         <div class="product-card" data-category="clothing">
-          <img src="color.jpeg" alt="T-Shirt" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Plain colored tee</h3>
-            <p class="product-price">Ksh 1,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="3" data-name="Plain colored T-Shirt" data-price="1500" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Plaim colored T-Shirt" data-price="1500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- More products would follow the same pattern -->
-        
-        <!-- Shoes Products -->
-        <div class="product-card" data-category="shoes">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Running Shoes" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Nike Running Shoes</h3>
-            <p class="product-price">Ksh 5,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="1" data-name="Nike Running Shoes" data-price="5500" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Nike Running Shoes" data-price="5500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-        
-         <div class="product-card" data-category="shoes">
-          <img src="cack.jpeg" alt="Cactus jacks" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Cactus jacks</h3>
-            <p class="product-price">Ksh 4,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="1" data-name="Cactus jacks" data-price="4500" data-image="">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Cactus Jacks" data-price="4500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="shoes">
-          <img src="air.jpeg" alt="Air Max" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Air Max</h3>
-            <p class="product-price">Ksh 4,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="1" data-name="Air Max" data-price="4500" data-image="">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Air Max" data-price="4500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-        
         <!-- Watches Products -->
         <div class="product-card" data-category="watches">
-          <img src="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Watch" class="product-image">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49" alt="Watch" class="product-image">
           <div class="product-info">
-            <h3 class="product-title">Luxury Chronograph</h3>
-            <p class="product-price">Ksh 5,500</p>
+            <h3 class="product-title">Luxury Watch</h3>
+            <p class="product-price">Ksh 12,000</p>
             <div class="product-actions">
               <div class="quantity-control">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="7" data-name="Luxury Chronograph Watch" data-price="5500" data-image="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Luxury Chronograph Watch" data-price="5500">
+              <button class="add-to-cart" data-id="12" data-name="Luxury Watch" data-price="12000" data-image="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Luxury Watch" data-price="12000">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="watches">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i><span class="likes-count">0</span></div>
+          <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6" alt="Smart Watch" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Smart Watch</h3>
+            <p class="product-price">Ksh 8,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="13" data-name="Smart Watch" data-price="8500" data-image="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Smart Watch" data-price="8500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
             </div>
@@ -951,28 +1109,73 @@
       </div>
     </div>
     
-    
     <!-- Product Grid - Clothing -->
     <div class="product-category" id="clothing-products">
       <div class="product-grid">
-        <!-- Clothing products will be shown here -->
+        <!-- Clothing products will be dynamically inserted here -->
       </div>
     </div>
     
     <!-- Product Grid - Shoes -->
     <div class="product-category" id="shoes-products">
       <div class="product-grid">
-        <!-- Shoes products will be shown here -->
+        <!-- Shoes products will be dynamically inserted here -->
       </div>
     </div>
     
     <!-- Product Grid - Watches -->
     <div class="product-category" id="watches-products">
       <div class="product-grid">
-        <!-- Watches products will be shown here -->
+        <!-- Watches products will be dynamically inserted here -->
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>DONE'S FASHION DESIGNER SHOP is your premier destination for the latest in clothing, shoes, and watches. We offer high-quality products at affordable prices.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="home">Home</a>
+        <a href="about us">Shop</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Best Sellers</a>
+        <a href="#">Special Offers</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQs</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Returns & Exchanges</a>
+        <a href="#">Size Guide</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Nairobi, Kenya</p>
+        <p><i class="fas fa-phone"></i> +254 703427147</p>
+        <p><i class="fas fa-envelope"></i> info@donesfashion.com</p>
+        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 8:00 PM</p>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 DONE'S FASHION DESIGNER SHOP. All Rights Reserved.</p>
+    </div>
+  </footer>
 
   <!-- Shopping Cart Modal -->
   <div class="cart-modal" id="cart-modal">
@@ -981,7 +1184,7 @@
       <button class="close-cart" id="close-cart">&times;</button>
     </div>
     <div class="cart-items" id="cart-items">
-      <!-- Cart items will be added here dynamically -->
+      <!-- Cart items will be dynamically inserted here -->
     </div>
     <div class="cart-summary">
       <div class="bill-details">
@@ -990,547 +1193,540 @@
           <span id="cart-subtotal">Ksh 0</span>
         </div>
         <div class="bill-row">
-          <span>Delivery Fee:</span>
-          <span id="delivery-fee">Ksh 200</span>
+          <span>Shipping:</span>
+          <span id="cart-shipping">Ksh 200</span>
         </div>
         <div class="bill-row bill-total">
           <span>Total:</span>
-          <span id="cart-total">Ksh 0</span>
+          <span id="cart-total">Ksh 200</span>
         </div>
       </div>
       <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
-      <button class="whatsapp-btn" id="whatsapp-btn">
+      <button class="whatsapp-btn" id="whatsapp-cart-btn">
         <i class="fab fa-whatsapp"></i> Order via WhatsApp
       </button>
     </div>
   </div>
 
-  <!-- Checkout Form Modal -->
+  <!-- Checkout Modal -->
   <div class="checkout-modal" id="checkout-modal">
     <div class="checkout-header">
-      <h3>Complete Your Order</h3>
+      <h3>Checkout</h3>
       <button class="close-checkout" id="close-checkout">&times;</button>
     </div>
     <div class="checkout-form">
-      <form id="customer-info-form">
-        <div class="form-group">
-          <label for="full-name">Full Name</label>
-          <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
-        </div>
-        
-        <div class="form-group">
-          <label for="phone-number">Phone Number</label>
-          <input type="tel" id="phone-number" name="phone-number" required placeholder="e.g. 254712345678">
-        </div>
-        
-        <div class="form-group">
-          <label for="location">Delivery Location</label>
-          <input type="text" id="location" name="location" required placeholder="Enter your delivery address">
-        </div>
-        
-        <div class="form-group">
-          <label for="mpesa-code">M-Pesa Transaction Code</label>
-          <input type="text" id="mpesa-code" name="mpesa-code" required placeholder="Enter your M-Pesa code">
-          <small class="help-text">Check your M-Pesa message for the transaction code</small>
-        </div>
-        
-        <div class="form-group">
-          <label for="delivery-instructions">Delivery Instructions (Optional)</label>
-          <textarea id="delivery-instructions" name="delivery-instructions" placeholder="Any special delivery instructions?"></textarea>
-        </div>
-        
-        <button type="submit" class="submit-order-btn">Submit Order</button>
-      </form>
+      <div class="form-group">
+        <label for="checkout-name">Full Name</label>
+        <input type="text" id="checkout-name" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout-email">Email</label>
+        <input type="email" id="checkout-email" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout-phone">Phone Number</label>
+        <input type="tel" id="checkout-phone" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout-address">Delivery Address</label>
+        <textarea id="checkout-address" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="checkout-notes">Order Notes (Optional)</label>
+        <textarea id="checkout-notes"></textarea>
+        <span class="help-text">Special instructions for your order</span>
+      </div>
+      <button class="submit-order-btn" id="submit-order-btn">Place Order</button>
     </div>
   </div>
-  
+
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>About Us</h3>
-        <p>DONE'S FASHION offers the latest fashion trends in Nairobi. We provide high-quality clothing, footwear and accessories at affordable prices.</p>
-      </div>
-      
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">New Arrivals</a>
-        <a href="#">Sale</a>
-      </div>
-      
-      <div class="footer-section">
-        <h3>Contact Us</h3>
-        <p>Nairobi Town, Dynamic Mall</p>
-        <p>Shop ML 55, 2nd Floor</p>
-        <p>Phone: +254 703 427 147</p>
-        <p>Email: info@donesshop.com</p>
-        
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="copyright">
-      <p>&copy; 2023 DONE'S FASHION. All Rights Reserved.</p>
-    </div>
-  </footer>
-
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/254703427147" class="whatsapp-float" target="_blank">
+  <div class="whatsapp-float" id="whatsapp-float">
     <i class="fab fa-whatsapp whatsapp-icon"></i>
-  </a>
-
+  </div>
+<div class="location-section">
+  <h3>Our Location</h3>
+  <div class="location-card">
+    <h4>Dynamic Mall Tom Mboya Street</h4>
+    <p><i class="fas fa-map-marker-alt"></i> Tom Mboya Street, Dynamic Mall, Nairobi</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.813073127456!2d36.82125031475375!3d-1.281999535977857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d7d4d338e5%3A0x7a7a9b3e0d1e1b1d!2sTom%20Mboya%20St%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" class="location-map" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cart = [];
-      const cartModal = document.getElementById('cart-modal');
-      const overlay = document.getElementById('overlay');
-      const openCartBtn = document.getElementById('open-cart');
-      const closeCartBtn = document.getElementById('close-cart');
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartSubtotalElement = document.getElementById('cart-subtotal');
-      const cartTotalElement = document.getElementById('cart-total');
-      const cartCountElement = document.querySelector('.cart-count');
-      const checkoutBtn = document.getElementById('checkout-btn');
-      const whatsappBtn = document.getElementById('whatsapp-btn');
-      const deliveryFeeElement = document.getElementById('delivery-fee');
+    // DOM Elements
+    const themeToggle = document.getElementById('theme-toggle');
+    const openCartBtn = document.getElementById('open-cart');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartModal = document.getElementById('cart-modal');
+    const overlay = document.getElementById('overlay');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartCount = document.querySelector('.cart-count');
+    const addToCartBtns = document.querySelectorAll('.add-to-cart');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const closeCheckoutBtn = document.getElementById('close-checkout');
+    const checkoutModal = document.getElementById('checkout-modal');
+    const submitOrderBtn = document.getElementById('submit-order-btn');
+    const whatsappFloatBtn = document.getElementById('whatsapp-float');
+    const whatsappCartBtn = document.getElementById('whatsapp-cart-btn');
+    const whatsappOrderBtns = document.querySelectorAll('.whatsapp-order-btn');
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const productCategories = document.querySelectorAll('.product-category');
+    const priceFilter = document.getElementById('price');
+    const sortFilter = document.getElementById('sort');
+    const searchFilter = document.getElementById('search');
+    const wishlistHearts = document.querySelectorAll('.wishlist-heart');
+
+    // Cart state
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Initialize the app
+    function init() {
+      updateCartCount();
+      setupEventListeners();
+      filterProducts();
+      sortProducts();
+      organizeProductsByCategory();
       
-      // Checkout form elements
-      const checkoutModal = document.getElementById('checkout-modal');
-      const closeCheckoutBtn = document.getElementById('close-checkout');
-      const customerInfoForm = document.getElementById('customer-info-form');
+      // Check for dark mode preference
+      if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    }
+
+    // Set up event listeners
+    function setupEventListeners() {
+      // Theme toggle
+      themeToggle.addEventListener('click', toggleTheme);
       
-      // Category tabs
-      const categoryTabs = document.querySelectorAll('.category-tab');
-      const productCategories = document.querySelectorAll('.product-category');
+      // Cart modal
+      openCartBtn.addEventListener('click', openCart);
+      closeCartBtn.addEventListener('click', closeCart);
+      overlay.addEventListener('click', closeCart);
       
       // Add to cart buttons
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-      
-      // Open cart modal
-      openCartBtn.addEventListener('click', function() {
-        cartModal.classList.add('open');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-      
-      // Close cart modal
-      closeCartBtn.addEventListener('click', function() {
-        cartModal.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      
-      // Close checkout modal
-      closeCheckoutBtn.addEventListener('click', function() {
-        checkoutModal.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      
-      // Close modal when clicking overlay
-      overlay.addEventListener('click', function() {
-        cartModal.classList.remove('open');
-        checkoutModal.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      
-      // Category tab switching
-      categoryTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const category = this.getAttribute('data-category');
-          
-          // Update active tab
-          categoryTabs.forEach(t => t.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Show the selected category
-          productCategories.forEach(cat => cat.classList.remove('active'));
-          
-          if (category === 'all') {
-            document.getElementById('all-products').classList.add('active');
-          } else {
-            // Filter products for the selected category
-            const allProducts = document.querySelectorAll('#all-products .product-card');
-            const categoryContainer = document.getElementById(`${category}-products`);
-            const categoryGrid = categoryContainer.querySelector('.product-grid');
-            
-            // Clear previous items
-            categoryGrid.innerHTML = '';
-            
-            // Add matching products
-            allProducts.forEach(product => {
-              if (product.getAttribute('data-category') === category) {
-                categoryGrid.appendChild(product.cloneNode(true));
-              }
-            });
-            
-            // Add event listeners to new buttons
-            addEventListenersToNewButtons(categoryGrid);
-            
-            // Show the category
-            categoryContainer.classList.add('active');
-          }
-        });
-      });
-      
-      // Add to cart functionality
-      function addToCartHandler(button) {
-        const id = button.getAttribute('data-id');
-        const name = button.getAttribute('data-name');
-        const price = parseFloat(button.getAttribute('data-price'));
-        const image = button.getAttribute('data-image');
-        const quantity = parseInt(button.parentElement.querySelector('.quantity-input').value);
-        
-        // Check if item already in cart
-        const existingItem = cart.find(item => item.id === id);
-        
-        if (existingItem) {
-          existingItem.quantity += quantity;
-        } else {
-          cart.push({
-            id,
-            name,
-            price,
-            image,
-            quantity
-          });
-        }
-        
-        updateCart();
-        
-        // Show feedback
-        alert(`${quantity} ${name} added to cart!`);
-      }
-      
-      // Add event listeners to all add-to-cart buttons
-      function addEventListenersToNewButtons(container) {
-        const buttons = container.querySelectorAll('.add-to-cart');
-        buttons.forEach(button => {
-          button.addEventListener('click', function() {
-            addToCartHandler(this);
-          });
-        });
-        
-        // Add event listeners to WhatsApp buttons
-        const whatsappButtons = container.querySelectorAll('.whatsapp-order-btn');
-        whatsappButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            whatsappOrderHandler(this);
-          });
-        });
-      }
-      
-      // Initial setup for add-to-cart buttons
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          addToCartHandler(this);
-        });
-      });
-      
-      // WhatsApp order handler for single products
-      function whatsappOrderHandler(button) {
-        const productName = button.getAttribute('data-name');
-        const productPrice = parseFloat(button.getAttribute('data-price'));
-        const quantity = button.parentElement.querySelector('.quantity-input').value;
-        const total = productPrice * quantity;
-        
-        const message = `Hello DONE'S FASHION! I'd like to order:\n\n` +
-                       `- ${productName} (${quantity} × Ksh ${productPrice.toLocaleString()}) = Ksh ${total.toLocaleString()}\n\n` +
-                       `Please contact me to confirm my order. Thank you!`;
-        
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = '254703427147'; // Your WhatsApp number
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-        
-        window.open(whatsappUrl, '_blank');
-      }
-      
-      // WhatsApp order for entire cart
-      whatsappBtn.addEventListener('click', function() {
-        if (cart.length === 0) {
-          alert('Your cart is empty!');
-          return;
-        }
-
-        // Calculate totals
-        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const deliveryFee = subtotal > 5000 ? 0 : 200;
-        const total = subtotal + deliveryFee;
-
-        // Create order message
-        let message = `Hello DONE'S FASHION! I'd like to place an order:\n\n`;
-        
-        // Add items to message
-        cart.forEach(item => {
-          message += `- ${item.name} (${item.quantity} × Ksh ${item.price.toLocaleString()}) = Ksh ${(item.price * item.quantity).toLocaleString()}\n`;
-        });
-        
-        message += `\nSubtotal: Ksh ${subtotal.toLocaleString()}\n`;
-        message += `Delivery: Ksh ${deliveryFee.toLocaleString()}\n`;
-        message += `Total: Ksh ${total.toLocaleString()}\n\n`;
-        message += `Please contact me to confirm my order. Thank you!`;
-
-        // Encode the message for URL
-        const encodedMessage = encodeURIComponent(message);
-        
-        // Your WhatsApp business number
-        const whatsappNumber = '254703427147'; // Kenyan format without + or 0
-        
-        // Create WhatsApp URL
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-        
-        // Open WhatsApp in a new tab
-        window.open(whatsappUrl, '_blank');
-        
-        // Close the cart modal
-        cartModal.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+      addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', addToCart);
       });
       
       // Quantity controls
-      document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('quantity-btn')) {
-          const input = e.target.parentElement.querySelector('.quantity-input');
-          let value = parseInt(input.value);
-          
-          if (e.target.classList.contains('minus')) {
-            if (value > 1) {
-              input.value = value - 1;
-            }
-          } else if (e.target.classList.contains('plus')) {
-            input.value = value + 1;
-          }
-        }
+      document.querySelectorAll('.quantity-btn').forEach(btn => {
+        btn.addEventListener('click', adjustQuantity);
       });
       
-      // Update cart display
-      function updateCart() {
-        cartItemsContainer.innerHTML = '';
-        let subtotal = 0;
-        
-        if (cart.length === 0) {
-          cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
-          deliveryFeeElement.textContent = 'Ksh 0';
-        } else {
-          cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            subtotal += itemTotal;
-            
-            const cartItemElement = document.createElement('div');
-            cartItemElement.className = 'cart-item';
-            cartItemElement.innerHTML = `
-              <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-              <div class="cart-item-details">
-                <h4 class="cart-item-title">${item.name}</h4>
-                <p class="cart-item-price">Ksh ${item.price.toLocaleString()} × ${item.quantity}</p>
-                <p class="cart-item-total">Ksh ${(item.price * item.quantity).toLocaleString()}</p>
-                <div class="quantity-control">
-                  <button class="quantity-btn minus" data-id="${item.id}">-</button>
-                  <input type="number" class="quantity-input" value="${item.quantity}" min="1">
-                  <button class="quantity-btn plus" data-id="${item.id}">+</button>
-                </div>
-              </div>
-              <button class="cart-item-remove" data-id="${item.id}">
-                <i class="fas fa-trash"></i>
-              </button>
-            `;
-            
-            cartItemsContainer.appendChild(cartItemElement);
-          });
-          
-          // Set delivery fee (free for orders over 5000)
-          const deliveryFee = subtotal > 5000 ? 0 : 200;
-          deliveryFeeElement.textContent = 'Ksh ' + deliveryFee.toLocaleString();
-        }
-        
-        const total = subtotal + parseInt(deliveryFeeElement.textContent.replace(/[^\d]/g, '') || 0);
-        
-        cartSubtotalElement.textContent = 'Ksh ' + subtotal.toLocaleString();
-        cartTotalElement.textContent = 'Ksh ' + total.toLocaleString();
-        cartCountElement.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-        
-        // Add event listeners to cart controls
-        document.querySelectorAll('.cart-item-remove').forEach(button => {
-          button.addEventListener('click', function() {
-            const id = this.getAttribute('data-id');
-            const index = cart.findIndex(item => item.id === id);
-            
-            if (index !== -1) {
-              cart.splice(index, 1);
-              updateCart();
-            }
-          });
-        });
-        
-        document.querySelectorAll('.cart-item .minus').forEach(button => {
-          button.addEventListener('click', function() {
-            const id = this.getAttribute('data-id');
-            const item = cart.find(item => item.id === id);
-            
-            if (item.quantity > 1) {
-              item.quantity--;
-              updateCart();
-            }
-          });
-        });
-        
-        document.querySelectorAll('.cart-item .plus').forEach(button => {
-          button.addEventListener('click', function() {
-            const id = this.getAttribute('data-id');
-            const item = cart.find(item => item.id === id);
-            item.quantity++;
-            updateCart();
-          });
-        });
-        
-        document.querySelectorAll('.cart-item .quantity-input').forEach(input => {
-          input.addEventListener('change', function() {
-            const id = this.closest('.cart-item').querySelector('.minus').getAttribute('data-id');
-            const item = cart.find(item => item.id === id);
-            const newQuantity = parseInt(this.value);
-            
-            if (newQuantity > 0) {
-              item.quantity = newQuantity;
-              updateCart();
-            } else {
-              this.value = item.quantity;
-            }
-          });
+      // Checkout
+      checkoutBtn.addEventListener('click', openCheckout);
+      closeCheckoutBtn.addEventListener('click', closeCheckout);
+      submitOrderBtn.addEventListener('click', submitOrder);
+      
+      // WhatsApp buttons
+      whatsappFloatBtn.addEventListener('click', openWhatsApp);
+      whatsappCartBtn.addEventListener('click', sendCartViaWhatsApp);
+      whatsappOrderBtns.forEach(btn => {
+        btn.addEventListener('click', sendProductViaWhatsApp);
+      });
+      
+      // Category tabs
+      categoryTabs.forEach(tab => {
+        tab.addEventListener('click', switchCategory);
+      });
+      
+      // Filters
+      priceFilter.addEventListener('change', filterProducts);
+      sortFilter.addEventListener('change', sortProducts);
+      searchFilter.addEventListener('input', filterProducts);
+      
+      // Wishlist hearts
+      wishlistHearts.forEach(heart => {
+        heart.addEventListener('click', toggleWishlist);
+      });
+    }
+
+    // Toggle dark/light theme
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    }
+
+    // Cart functions
+    function openCart() {
+      cartModal.classList.add('open');
+      overlay.classList.add('active');
+      renderCartItems();
+    }
+
+    function closeCart() {
+      cartModal.classList.remove('open');
+      overlay.classList.remove('active');
+      closeCheckout();
+    }
+
+    function openCheckout() {
+      checkoutModal.classList.add('open');
+    }
+
+    function closeCheckout() {
+      checkoutModal.classList.remove('open');
+    }
+
+    function addToCart(e) {
+      const button = e.target;
+      const id = button.getAttribute('data-id');
+      const name = button.getAttribute('data-name');
+      const price = parseInt(button.getAttribute('data-price'));
+      const image = button.getAttribute('data-image');
+      const quantity = parseInt(button.closest('.product-actions').querySelector('.quantity-input').value);
+      
+      // Check if item already in cart
+      const existingItem = cart.find(item => item.id === id);
+      
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({
+          id,
+          name,
+          price,
+          image,
+          quantity
         });
       }
       
-      // Checkout button - show checkout form
-      checkoutBtn.addEventListener('click', function() {
-        if (cart.length === 0) {
-          alert('Your cart is empty!');
-          return;
-        }
-        
-        // Close the cart modal and open the checkout form
-        cartModal.classList.remove('open');
-        checkoutModal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-      
-      // Form submission
-      customerInfoForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const fullName = document.getElementById('full-name').value;
-        const phoneNumber = document.getElementById('phone-number').value;
-        const location = document.getElementById('location').value;
-        const mpesaCode = document.getElementById('mpesa-code').value;
-        const deliveryInstructions = document.getElementById('delivery-instructions').value;
-        
-        // Calculate totals
-        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const deliveryFee = subtotal > 45000 ? 0 : 200;
-        const total = subtotal + deliveryFee;
-        
-        // Generate receipt
-        let receipt = `=== DONE'S FASHION ORDER CONFIRMATION ===\n\n`;
-        receipt += `CUSTOMER DETAILS:\n`;
-        receipt += `Name: ${fullName}\n`;
-        receipt += `Phone: ${phoneNumber}\n`;
-        receipt += `Location: ${location}\n`;
-        receipt += `M-Pesa Code: ${mpesaCode}\n`;
-        if (deliveryInstructions) {
-          receipt += `Delivery Instructions: ${deliveryInstructions}\n`;
-        }
-        
-        receipt += `\nORDER DETAILS:\n`;
-        cart.forEach(item => {
-          receipt += `${item.name} (${item.quantity} × Ksh ${item.price.toLocaleString()}) = Ksh ${(item.price * item.quantity).toLocaleString()}\n`;
-        });
-        
-        receipt += `\nSUBTOTAL: Ksh ${subtotal.toLocaleString()}\n`;
-        receipt += `DELIVERY: Ksh ${deliveryFee.toLocaleString()}\n`;
-        receipt += `TOTAL: Ksh ${total.toLocaleString()}\n\n`;
-        receipt += `Your order has been received! We will contact you shortly to confirm delivery details.\n`;
-        receipt += `Thank you for shopping with DONE'S FASHION!`;
-        
-        // Show confirmation
-        alert(receipt);
-        
-        // Reset form and cart
-        customerInfoForm.reset();
-        cart.length = 0;
-        updateCart();
-        checkoutModal.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-      
-      // Initialize empty cart
       updateCart();
+    }
+
+    function adjustQuantity(e) {
+      const button = e.target;
+      const input = button.parentElement.querySelector('.quantity-input');
+      let value = parseInt(input.value);
       
-      // Filter functionality (simplified for demo)
-      document.getElementById('price').addEventListener('change', function() {
-        const priceRange = this.value;
-        const products = document.querySelectorAll('.product-card');
+      if (button.classList.contains('minus') && value > 1) {
+        value--;
+      } else if (button.classList.contains('plus')) {
+        value++;
+      }
+      
+      input.value = value;
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCart();
+    }
+
+    function updateCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      renderCartItems();
+    }
+
+    function updateCartCount() {
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      cartCount.textContent = count;
+    }
+
+    function renderCartItems() {
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+        document.getElementById('cart-subtotal').textContent = 'Ksh 0';
+        document.getElementById('cart-total').textContent = 'Ksh 200';
+        return;
+      }
+      
+      cartItemsContainer.innerHTML = '';
+      
+      let subtotal = 0;
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
         
-        products.forEach(product => {
-          const price = parseInt(product.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
-          let shouldShow = true;
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+          <div class="cart-item-details">
+            <h4 class="cart-item-title">${item.name}</h4>
+            <p class="cart-item-price">Ksh ${item.price.toLocaleString()}</p>
+            <div class="quantity-control">
+              <button class="quantity-btn minus" data-id="${item.id}">-</button>
+              <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+              <button class="quantity-btn plus" data-id="${item.id}">+</button>
+            </div>
+          </div>
+          <button class="cart-item-remove" data-id="${item.id}">&times;</button>
+        `;
+        
+        cartItemsContainer.appendChild(cartItem);
+      });
+      
+      // Add event listeners to new quantity buttons
+      document.querySelectorAll('.cart-item .quantity-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = btn.getAttribute('data-id');
+          const item = cart.find(item => item.id === id);
+          const input = btn.parentElement.querySelector('.quantity-input');
           
-          if (priceRange === '0-2000' && price > 2000) shouldShow = false;
-          else if (priceRange === '2000-4000' && (price < 2000 || price > 4000)) shouldShow = false;
-          else if (priceRange === '4000-6000' && (price < 4000 || price > 6000)) shouldShow = false;
-          else if (priceRange === '6000+' && price < 6000) shouldShow = false;
+          if (btn.classList.contains('minus')) {
+            if (item.quantity > 1) {
+              item.quantity--;
+              input.value = item.quantity;
+            } else {
+              removeFromCart(id);
+              return;
+            }
+          } else if (btn.classList.contains('plus')) {
+            item.quantity++;
+            input.value = item.quantity;
+          }
           
-          product.style.display = shouldShow ? 'block' : 'none';
+          updateCart();
         });
       });
       
-      document.getElementById('sort').addEventListener('change', function() {
-        const sortBy = this.value;
-        const activeCategory = document.querySelector('.product-category.active');
-        const productGrid = activeCategory.querySelector('.product-grid');
-        const products = Array.from(productGrid.querySelectorAll('.product-card'));
-        
-        products.sort((a, b) => {
-          const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
-          const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
-          
-          if (sortBy === 'price-low') return priceA - priceB;
-          if (sortBy === 'price-high') return priceB - priceA;
-          return 0; // For other sort options, maintain current order
-        });
-        
-        // Re-append sorted products
-        products.forEach(product => productGrid.appendChild(product));
-      });
-      
-      document.getElementById('search').addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const products = document.querySelectorAll('.product-card');
-        
-        products.forEach(product => {
-          const title = product.querySelector('.product-title').textContent.toLowerCase();
-          product.style.display = title.includes(searchTerm) ? 'block' : 'none';
+      // Add event listeners to remove buttons
+      document.querySelectorAll('.cart-item-remove').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          removeFromCart(id);
         });
       });
       
-      // Add event listeners to initial WhatsApp buttons
-      document.querySelectorAll('.whatsapp-order-btn').forEach(button => {
-        button.addEventListener('click', function() {
-          whatsappOrderHandler(this);
-        });
+      const shipping = 200;
+      const total = subtotal + shipping;
+      
+      document.getElementById('cart-subtotal').textContent = `Ksh ${subtotal.toLocaleString()}`;
+      document.getElementById('cart-total').textContent = `Ksh ${total.toLocaleString()}`;
+    }
+
+    // Order functions
+    function submitOrder() {
+      const name = document.getElementById('checkout-name').value;
+      const email = document.getElementById('checkout-email').value;
+      const phone = document.getElementById('checkout-phone').value;
+      const address = document.getElementById('checkout-address').value;
+      const notes = document.getElementById('checkout-notes').value;
+      
+      if (!name || !email || !phone || !address) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      // In a real app, you would send this data to your server
+      console.log('Order submitted:', { name, email, phone, address, notes, cart });
+      
+      // Show confirmation
+      alert('Thank you for your order! We will contact you shortly to confirm.');
+      
+      // Clear cart and close modals
+      cart = [];
+      updateCart();
+      closeCart();
+      closeCheckout();
+    }
+
+    // WhatsApp functions
+    function openWhatsApp() {
+      const phone = '+254703427147';
+      const message = 'Hello! I have a question about your products.';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function sendCartViaWhatsApp() {
+      if (cart.length === 0) {
+        alert('Your cart is empty');
+        return;
+      }
+      
+      const phone = '+254703427147';
+      let message = 'I would like to order the following items:\n\n';
+      
+      cart.forEach(item => {
+        message += `- ${item.name} (${item.quantity} x Ksh ${item.price}) = Ksh ${item.quantity * item.price}\n`;
       });
-    });
+      
+      const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      const shipping = 200;
+      const total = subtotal + shipping;
+      
+      message += `\nSubtotal: Ksh ${subtotal}\n`;
+      message += `Shipping: Ksh ${shipping}\n`;
+      message += `Total: Ksh ${total}\n\n`;
+      message += 'Please confirm availability and provide payment details.';
+      
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function sendProductViaWhatsApp(e) {
+      const button = e.target.closest('.whatsapp-order-btn');
+      const name = button.getAttribute('data-name');
+      const price = button.getAttribute('data-price');
+      const quantity = button.closest('.product-actions').querySelector('.quantity-input').value;
+      
+      const phone = '+254703427147';
+      const message = `I would like to order:\n\n- ${name} (${quantity} x Ksh ${price}) = Ksh ${quantity * price}\n\nPlease confirm availability.`;
+      
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    // Category functions
+    function switchCategory(e) {
+      const tab = e.target;
+      const category = tab.getAttribute('data-category');
+      
+      // Update active tab
+      categoryTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      
+      // Show selected category
+      productCategories.forEach(cat => cat.classList.remove('active'));
+      
+      if (category === 'all') {
+        document.getElementById('all-products').classList.add('active');
+      } else {
+        document.getElementById(`${category}-products`).classList.add('active');
+      }
+    }
+
+    // Organize products by category for category tabs
+    function organizeProductsByCategory() {
+      const allProducts = document.querySelectorAll('.product-card');
+      
+      allProducts.forEach(product => {
+        const category = product.getAttribute('data-category');
+        const clone = product.cloneNode(true);
+        
+        // Add event listeners to cloned buttons
+        const addToCartBtn = clone.querySelector('.add-to-cart');
+        const whatsappBtn = clone.querySelector('.whatsapp-order-btn');
+        const quantityBtns = clone.querySelectorAll('.quantity-btn');
+        const wishlistHeart = clone.querySelector('.wishlist-heart');
+        
+        if (addToCartBtn) addToCartBtn.addEventListener('click', addToCart);
+        if (whatsappBtn) whatsappBtn.addEventListener('click', sendProductViaWhatsApp);
+        quantityBtns.forEach(btn => btn.addEventListener('click', adjustQuantity));
+        if (wishlistHeart) wishlistHeart.addEventListener('click', toggleWishlist);
+        
+        document.getElementById(`${category}-products`).querySelector('.product-grid').appendChild(clone);
+      });
+    }
+
+    // Filter products by price and search
+    function filterProducts() {
+      const priceRange = priceFilter.value;
+      const searchTerm = searchFilter.value.toLowerCase();
+      const activeCategory = document.querySelector('.category-tab.active').getAttribute('data-category');
+      
+      let productsToFilter;
+      
+      if (activeCategory === 'all') {
+        productsToFilter = document.querySelectorAll('#all-products .product-card');
+      } else {
+        productsToFilter = document.querySelectorAll(`#${activeCategory}-products .product-card`);
+      }
+      
+      productsToFilter.forEach(product => {
+        const price = parseInt(product.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+        const title = product.querySelector('.product-title').textContent.toLowerCase();
+        const matchesPrice = 
+          priceRange === 'all' ||
+          (priceRange === '0-2000' && price <= 2000) ||
+          (priceRange === '2000-4000' && price > 2000 && price <= 4000) ||
+          (priceRange === '4000-6000' && price > 4000 && price <= 6000) ||
+          (priceRange === '6000+' && price > 6000);
+        
+        const matchesSearch = title.includes(searchTerm);
+        
+        if (matchesPrice && matchesSearch) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Sort products
+    function sortProducts() {
+      const sortBy = sortFilter.value;
+      const activeCategory = document.querySelector('.category-tab.active').getAttribute('data-category');
+      
+      let productsToSort;
+      let container;
+      
+      if (activeCategory === 'all') {
+        container = document.querySelector('#all-products .product-grid');
+        productsToSort = Array.from(document.querySelectorAll('#all-products .product-card'));
+      } else {
+        container = document.querySelector(`#${activeCategory}-products .product-grid`);
+        productsToSort = Array.from(document.querySelectorAll(`#${activeCategory}-products .product-card`));
+      }
+      
+      productsToSort.sort((a, b) => {
+        const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+        const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+        const likesA = parseInt(a.querySelector('.likes-count').textContent);
+        const likesB = parseInt(b.querySelector('.likes-count').textContent);
+        
+        switch (sortBy) {
+          case 'price-low':
+            return priceA - priceB;
+          case 'price-high':
+            return priceB - priceA;
+          case 'popular':
+            return likesB - likesA;
+          case 'newest':
+          default:
+            return 0; // In a real app, you would sort by date added
+        }
+      });
+      
+      // Re-append sorted products
+      productsToSort.forEach(product => container.appendChild(product));
+    }
+
+    // Wishlist function
+    function toggleWishlist(e) {
+      const heart = e.target.closest('.wishlist-heart');
+      const icon = heart.querySelector('i');
+      const countSpan = heart.querySelector('.likes-count');
+      let count = parseInt(countSpan.textContent);
+      
+      if (icon.classList.contains('far')) {
+        icon.classList.remove('far');
+        icon.classList.add('fas', 'active');
+        count++;
+      } else {
+        icon.classList.remove('fas', 'active');
+        icon.classList.add('far');
+        count = Math.max(0, count - 1);
+      }
+      
+      countSpan.textContent = count;
+      
+      // Update sorting if sorted by popularity
+      if (sortFilter.value === 'popular') {
+        sortProducts();
+      }
+    }
+
+    // Initialize the app
+    document.addEventListener('DOMContentLoaded', init);
+    
   </script>
 </body>
 </html>
+
+
+
+
+
